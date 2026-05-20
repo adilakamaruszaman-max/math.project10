@@ -1,0 +1,537 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD2 Pineapple Sugar Derivative Simulator</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- KaTeX for beautiful math equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .math-block {
+            overflow-x: auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-emerald-800/50 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-emerald-500/10 rounded-xl border border-emerald-500/30 text-emerald-400">
+                    <i data-lucide="sprout" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold tracking-wider text-emerald-400 uppercase">SFP: Agro Product Technology</span>
+                    <h1 class="text-xl font-extrabold text-white tracking-tight">MD2 Sugar Kinetic Derivative Engine</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
+                <span class="inline-block w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span class="text-xs font-medium text-slate-300">MARDI & LPNM Quality Benchmarks</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
+        
+        <!-- Left Column: Scientific and Mathematical Framework -->
+        <section class="w-full lg:w-5/12 flex flex-col gap-6">
+            
+            <!-- Bioscience Scenario Overview -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl -mr-10 -mt-10 transition-all group-hover:bg-emerald-500/10"></div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-950 text-emerald-300 rounded-full border border-emerald-800/50">Malaysian Scenario</span>
+                </div>
+                <h2 class="text-lg font-bold text-white mb-2">MD2 Pineapple Ripening & Sugar Accumulation</h2>
+                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                    In Malaysia's high-value agro-product sector, the premium <strong class="text-emerald-400">MD2 Pineapple (Ananas comosus)</strong> is celebrated for its low acidity, high vitamin C, and rich golden flesh. To optimize harvesting times for export or processing into high-end juices, agroproduct technicians track total soluble solids in <strong class="text-yellow-400">Degrees Brix (&deg;Brix)</strong>.
+                </p>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    By modeling this sugar accumulation process as a function of time, we can take its **first derivative** $f'(x)$ to compute the **instantaneous rate of sugar accumulation**. This exact velocity dictates the optimal harvest window (MPOI Index 2-4) before senescence and fermentation ruin the fruit.
+                </p>
+            </div>
+
+            <!-- Mathematical Modeling Card -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl">
+                <div class="flex items-center gap-2 mb-4 text-emerald-400">
+                    <i data-lucide="calculator" class="w-5 h-5"></i>
+                    <h3 class="text-md font-bold text-white">The Mathematical Model</h3>
+                </div>
+                
+                <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                    We model sugar concentration $f(x)$ over Days After Floral Induction (DAFI) using a customized sigmoidal (logistic) curve that maps realistic physiological development from Day 110 to 150:
+                </p>
+
+                <!-- Formula displays -->
+                <div class="space-y-4 bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                    <div>
+                        <span class="text-xs font-bold text-slate-400 block mb-1">Sugar Content Function, $f(x)$ (&deg;Brix):</span>
+                        <div id="equation-fx" class="text-sm text-yellow-300 font-mono py-1 math-block"></div>
+                    </div>
+                    <hr class="border-slate-800">
+                    <div>
+                        <span class="text-xs font-bold text-slate-400 block mb-1">Accumulation Velocity, $f'(x)$ (&deg;Brix/day):</span>
+                        <div id="equation-dfx" class="text-sm text-emerald-300 font-mono py-1 math-block"></div>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex flex-col gap-2 text-xs text-slate-400">
+                    <div class="flex justify-between border-b border-slate-800/50 py-1">
+                        <span>$x$</span>
+                        <span>Days After Floral Induction (DAFI) [110 to 150]</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-800/50 py-1">
+                        <span>$k$</span>
+                        <span>Metabolic rate modifier (influenced by ripening accelerators like Ethephon)</span>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <span>Base Offset</span>
+                        <span>$2.0^\circ\text{Brix}$ baseline before late-stage sugar transition</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scientific Sources / Web References -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 shadow-xl">
+                <div class="flex items-center gap-2 mb-3 text-slate-400">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    <h4 class="text-xs font-bold uppercase tracking-wider">Academic & Policy Benchmarks</h4>
+                </div>
+                <ul class="space-y-2.5 text-xs text-slate-300">
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-400 font-bold mt-0.5">&bull;</span>
+                        <span>
+                            <strong class="text-slate-100">MARDI</strong> Journal of Tropical Agriculture and Food Science: 
+                            <span class="italic text-slate-400">"Physicochemical and sugar profiling of MD2 pineapple during development."</span>
+                        </span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-400 font-bold mt-0.5">&bull;</span>
+                        <span>
+                            <strong class="text-slate-100">Lembaga Perindustrian Nanas Malaysia (LPNM)</strong>: 
+                            <span class="italic text-slate-400">"National Harvest Maturity Index for Export Quality MD2 Pineapples (Piawaian 1135)."</span>
+                        </span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-emerald-400 font-bold mt-0.5">&bull;</span>
+                        <span>
+                            <strong class="text-slate-100">DOA Malaysia</strong> (Department of Agriculture): 
+                            <span class="italic text-slate-400">"Guidelines for Ethephon Application Rates and Postharvest Temperature Management in Tropical Crops."</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Right Column: Interactive App & Chart -->
+        <section class="w-full lg:w-7/12 flex flex-col gap-6">
+
+            <!-- Dynamic Parameter Controller -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-2">
+                        <div class="p-1.5 bg-yellow-500/10 rounded-lg text-yellow-400">
+                            <i data-lucide="sliders" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-md font-bold text-white">Agro-Chemical & Environmental Variables</h3>
+                    </div>
+                    <span id="modifier-badge" class="px-3 py-1 text-xs font-bold rounded-full bg-blue-950 text-blue-300 border border-blue-800">
+                        Ethephon Factor: 1.00x (Standard)
+                    </span>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-xs font-medium text-slate-300 mb-2">
+                            <span>Ripening Speed Modifier ($k$)</span>
+                            <span class="text-emerald-400 font-mono font-bold" id="k-value">1.0</span>
+                        </div>
+                        <input 
+                            type="range" 
+                            id="k-slider" 
+                            min="0.6" 
+                            max="1.5" 
+                            step="0.05" 
+                            value="1.0" 
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        >
+                        <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                            <span>0.6x (Cold Highland Temperature / Delayed)</span>
+                            <span>1.5x (Optimized Ethephon Spray / Rapid Ripening)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Chart Container -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col gap-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <h3 class="text-md font-bold text-white flex items-center gap-2">
+                            <span class="inline-block w-3 h-3 rounded-full bg-yellow-400"></span>
+                            Interactive Growth & Rate Curve
+                        </h3>
+                        <p class="text-xs text-slate-400">Click anywhere on the graph area or hover points to calculate the exact slope $f'(x)$</p>
+                    </div>
+                    <!-- Legend Indicators -->
+                    <div class="flex gap-4 text-xs">
+                        <span class="flex items-center gap-1.5 text-yellow-400 font-medium">
+                            <span class="w-2.5 h-2.5 rounded bg-yellow-400"></span> Sugar (f(x))
+                        </span>
+                        <span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+                            <span class="w-2.5 h-2.5 rounded bg-emerald-400"></span> Rate (f'(x))
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Canvas Wrapper -->
+                <div class="relative w-full h-[320px] bg-slate-900/50 p-2 rounded-xl border border-slate-800/80">
+                    <canvas id="derivativeChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
+
+            <!-- Interactive Analysis Panel -->
+            <div id="analysis-panel" class="bg-gradient-to-br from-emerald-950/40 via-slate-950 to-slate-950 border border-emerald-800/40 rounded-2xl p-6 shadow-xl transition-all duration-300">
+                <div class="flex items-center justify-between mb-4 border-b border-slate-800/50 pb-3">
+                    <div class="flex items-center gap-2 text-emerald-400">
+                        <i data-lucide="microscope" class="w-5 h-5"></i>
+                        <h3 class="text-sm font-bold uppercase tracking-wider">Dynamic Bioscience Inspector</h3>
+                    </div>
+                    <span id="selected-day-badge" class="px-3 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg">
+                        Day 130 (DAFI)
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <!-- Sugar State Card -->
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+                        <div class="flex items-center gap-2 text-yellow-400 text-xs font-bold uppercase mb-1">
+                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            Sugar Level (f(x))
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span id="sugar-value" class="text-2xl font-black text-white">10.00</span>
+                            <span class="text-xs text-slate-400">&deg;Brix</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1">Total dissolved fruit solids (mainly sucrose, fructose, glucose).</p>
+                    </div>
+
+                    <!-- Derivative State Card -->
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 hover:border-emerald-950/80 transition">
+                        <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase mb-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            Velocity rate (f'(x))
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span id="derivative-value" class="text-2xl font-black text-white">0.60</span>
+                            <span class="text-xs text-slate-400">&deg;Brix/day</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1">Instantaneous velocity of sugar accumulation per 24 hours.</p>
+                    </div>
+                </div>
+
+                <!-- Layman Explanation Box -->
+                <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-800">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mb-1.5">
+                        <i data-lucide="info" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        Post-Harvest Technical Interpretation
+                    </span>
+                    <p id="layman-explanation" class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                        At Day 130, the pineapple is accumulating sugar at its absolute fastest rate. This is the critical transition phase from starch to sucrose...
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+            <p>Designed for agricultural science labs & post-harvest kinetics education at Malaysian agro-tech facilities.</p>
+            <p>&copy; 2026 MD2 Agro-Product Bio-Derivative Toolset.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mathematical Constants & Equations
+        let k = 1.0; // Slider modifier
+        const base_f = (x) => {
+            // Sigmoid: f(x) = 16 / (1 + e^(-0.15 * k * (x - 130))) + 2
+            const exponent = -0.15 * k * (x - 130);
+            return 16 / (1 + Math.exp(exponent)) + 2;
+        };
+
+        const base_df = (x) => {
+            // Derivative: f'(x) = 2.4 * k * e^(-0.15 * k * (x - 130)) / (1 + e^(-0.15 * k * (x - 130)))^2
+            const exponent = -0.15 * k * (x - 130);
+            const expVal = Math.exp(exponent);
+            const denominator = Math.pow(1 + expVal, 2);
+            return (2.4 * k * expVal) / denominator;
+        };
+
+        // DOM Elements
+        const kSlider = document.getElementById('k-slider');
+        const kValueText = document.getElementById('k-value');
+        const sugarValueText = document.getElementById('sugar-value');
+        const derivativeValueText = document.getElementById('derivative-value');
+        const laymanExplanationText = document.getElementById('layman-explanation');
+        const selectedDayBadge = document.getElementById('selected-day-badge');
+        const modifierBadge = document.getElementById('modifier-badge');
+
+        let activeDay = 130; // Initial active day in UI
+        let chartInstance = null;
+
+        // Render equations via KaTeX
+        function updateEquations() {
+            const fxLatex = `f(x) = \\frac{16}{1 + e^{-0.15 \\cdot ${k.toFixed(2)} \\cdot (x - 130)}} + 2`;
+            const dfxLatex = `f'(x) = \\frac{2.4 \\cdot ${k.toFixed(2)} \\cdot e^{-0.15 \\cdot ${k.toFixed(2)} \\cdot (x - 130)}}{\\left(1 + e^{-0.15 \\cdot ${k.toFixed(2)} \\cdot (x - 130)}\\right)^2}`;
+            
+            if (window.katex) {
+                katex.render(fxLatex, document.getElementById('equation-fx'), { throwOnError: false, displayMode: true });
+                katex.render(dfxLatex, document.getElementById('equation-dfx'), { throwOnError: false, displayMode: true });
+            }
+        }
+
+        // Generate Dataset Array
+        function generateData() {
+            const days = [];
+            const sugarValues = [];
+            const rateValues = [];
+
+            for (let day = 110; day <= 150; day += 1) {
+                days.push(day);
+                sugarValues.push(Number(base_f(day).toFixed(3)));
+                rateValues.push(Number(base_df(day).toFixed(3)));
+            }
+            return { days, sugarValues, rateValues };
+        }
+
+        // Interpretative Text Generator Based on Growth Kinetics & Malaysian Harvesting Indices (LPNM)
+        function generateLaymanExplanation(day, sugar, rate) {
+            const rateFormatted = rate.toFixed(3);
+            const sugarFormatted = sugar.toFixed(2);
+            let response = "";
+
+            if (day < 120) {
+                response = `<strong>Day ${day} (Harvest Index 1 - Mature Green):</strong> Sugar level is extremely low at ${sugarFormatted}°Brix, growing slowly at ${rateFormatted}°Brix/day. The fruit pulp is pale, firm, and starchy. Avoid harvest unless long sea-shipping duration is planned; sugar accumulation hasn't triggered.`;
+            } else if (day >= 120 && day < 128) {
+                response = `<strong>Day ${day} (Harvest Index 2 - Tinges of Yellow at base):</strong> Sugar level is rising (${sugarFormatted}°Brix) at a rate of ${rateFormatted}°Brix/day. Ripening has safely started. Perfect for processing plants (canning/cubing) since the pulp maintains high structural integrity for mechanical cutting.`;
+            } else if (day >= 128 && day <= 132) {
+                response = `<strong>Day ${day} (Harvest Index 3 - Golden Yellow at center peak):</strong> The sugar conversion speed is at its absolute maximum (${rateFormatted}°Brix/day), hitting a perfect sweet spot of ${sugarFormatted}°Brix. The balance of organic acids and sugars is optimal. This is the **ultimate harvesting window** for local premium air-freighted fruit markets and immediate juicing!`;
+            } else if (day > 132 && day <= 140) {
+                response = `<strong>Day ${day} (Harvest Index 4 - Deep Golden Yellow/Orange):</strong> Sugar levels are very high at ${sugarFormatted}°Brix, but notice how the derivative is dropping to ${rateFormatted}°Brix/day. The biological engine is decelerating. Harvest with speed; immediate cold chain distribution (ambient temp 7-10°C) is mandatory to prevent bruising and over-ripening.`;
+            } else {
+                response = `<strong>Day ${day} (Overripe/Index 5+):</strong> Sugar concentration has plateaued high (${sugarFormatted}°Brix) while derivative velocity has crashed down to ${rateFormatted}°Brix/day. In this state, the flesh becomes water-soaked, volatile alcohols trigger fermentation, and processing is ruined. Biological senescence has succeeded.`;
+            }
+
+            // Adjust based on the k (Ethephon factor)
+            if (k > 1.25) {
+                response += ` <span class="text-yellow-400 block mt-1.5 font-medium"><i data-lucide="zap" class="w-3.5 h-3.5 inline"></i> Ethephon speed boost active: Sugar transformation was pulled forward by chemical acceleration. Watch out for potential flesh translucency risks.</span>`;
+            } else if (k < 0.8) {
+                response += ` <span class="text-blue-400 block mt-1.5 font-medium"><i data-lucide="snowflake" class="w-3.5 h-3.5 inline"></i> Temperature inhibition: Slow sugar mobilization detected. Harvest timelines must be extended to meet standard sugar metrics.</span>`;
+            }
+
+            return response;
+        }
+
+        // Update the inspector display
+        function updateInspector(day) {
+            activeDay = day;
+            const currentSugar = base_f(day);
+            const currentRate = base_df(day);
+
+            sugarValueText.textContent = currentSugar.toFixed(2);
+            derivativeValueText.textContent = currentRate.toFixed(3);
+            selectedDayBadge.textContent = `Day ${day} (DAFI)`;
+            
+            laymanExplanationText.innerHTML = generateLaymanExplanation(day, currentSugar, currentRate);
+            lucide.createIcons();
+        }
+
+        // Initialize / Update Chart.js Graphic
+        function updateChart() {
+            const dataObj = generateData();
+
+            // Find point of interest
+            const indexPoint = dataObj.days.indexOf(activeDay);
+
+            if (chartInstance) {
+                chartInstance.data.labels = dataObj.days;
+                chartInstance.data.datasets[0].data = dataObj.sugarValues;
+                chartInstance.data.datasets[1].data = dataObj.rateValues;
+                
+                // Highlight active point on the chart visually
+                chartInstance.update();
+            } else {
+                const ctx = document.getElementById('derivativeChart').getContext('2d');
+                chartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dataObj.days,
+                        datasets: [
+                            {
+                                label: 'Sugar Content f(x) (°Brix)',
+                                data: dataObj.sugarValues,
+                                borderColor: '#eab308', // yellow-500
+                                backgroundColor: 'rgba(234, 179, 8, 0.05)',
+                                borderWidth: 3,
+                                pointBackgroundColor: '#eab308',
+                                pointBorderColor: '#0f172a',
+                                pointRadius: 4,
+                                pointHoverRadius: 8,
+                                fill: true,
+                                yAxisID: 'y'
+                            },
+                            {
+                                label: "Accumulation Speed f'(x) (°Brix/day)",
+                                data: dataObj.rateValues,
+                                borderColor: '#10b981', // emerald-500
+                                backgroundColor: 'transparent',
+                                borderDash: [4, 4],
+                                borderWidth: 2,
+                                pointBackgroundColor: '#10b981',
+                                pointBorderColor: '#0f172a',
+                                pointRadius: 4,
+                                pointHoverRadius: 8,
+                                yAxisID: 'y1'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Days After Floral Induction (DAFI)',
+                                    color: '#94a3b8',
+                                    font: { family: 'Inter', weight: 'bold', size: 10 }
+                                },
+                                grid: { color: 'rgba(30, 41, 59, 0.5)' },
+                                ticks: { color: '#94a3b8' }
+                            },
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'Sugar Concentration (°Brix)',
+                                    color: '#eab308',
+                                    font: { family: 'Inter', weight: 'bold', size: 10 }
+                                },
+                                grid: { color: 'rgba(30, 41, 59, 0.5)' },
+                                ticks: { color: '#eab308' },
+                                min: 0,
+                                max: 20
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                title: {
+                                    display: true,
+                                    text: "Rate of Change (°Brix/Day)",
+                                    color: '#10b981',
+                                    font: { family: 'Inter', weight: 'bold', size: 10 }
+                                },
+                                grid: { drawOnChartArea: false },
+                                ticks: { color: '#10b981' },
+                                min: 0,
+                                max: 1.5
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                enabled: true,
+                                backgroundColor: '#1e293b',
+                                titleColor: '#ffffff',
+                                bodyColor: '#cbd5e1',
+                                borderColor: '#334155',
+                                borderWidth: 1,
+                                padding: 10,
+                                cornerRadius: 8,
+                                callbacks: {
+                                    title: function(context) {
+                                        return `Day ${context[0].label} (DAFI Analysis)`;
+                                    }
+                                }
+                            }
+                        },
+                        onClick: (event, activeElements) => {
+                            if (activeElements && activeElements.length > 0) {
+                                const index = activeElements[0].index;
+                                const clickedDay = dataObj.days[index];
+                                updateInspector(clickedDay);
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Slider Listener
+        kSlider.addEventListener('input', (e) => {
+            k = parseFloat(e.target.value);
+            kValueText.textContent = k.toFixed(2);
+            
+            // Highlight chemical modifier badge
+            if (k === 1.0) {
+                modifierBadge.className = "px-3 py-1 text-xs font-bold rounded-full bg-blue-950 text-blue-300 border border-blue-800";
+                modifierBadge.textContent = "Ethephon Factor: 1.00x (Standard)";
+            } else if (k > 1.0) {
+                modifierBadge.className = "px-3 py-1 text-xs font-bold rounded-full bg-yellow-950 text-yellow-300 border border-yellow-800";
+                modifierBadge.textContent = `Ethephon Boost: ${k.toFixed(2)}x (Accelerating)`;
+            } else {
+                modifierBadge.className = "px-3 py-1 text-xs font-bold rounded-full bg-slate-800 text-slate-300 border border-slate-700";
+                modifierBadge.textContent = `Delayed Cooling: ${k.toFixed(2)}x (Decelerating)`;
+            }
+
+            // Repaint components
+            updateEquations();
+            updateChart();
+            updateInspector(activeDay);
+        });
+
+        // Initialize script logic on window load
+        window.onload = function() {
+            lucide.createIcons();
+            setTimeout(() => {
+                updateEquations();
+                updateChart();
+                updateInspector(130);
+            }, 100);
+        };
+    </script>
+</body>
+</html></pre>
+        </body>
+    </html>
